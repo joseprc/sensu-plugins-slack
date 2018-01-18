@@ -27,7 +27,7 @@ class Slack < Sensu::Handler
   end
 
   def slack_webhook_url
-    get_setting('webhook_url')
+    @event['client']['webhook_url'] || get_setting('webhook_url')
   end
 
   def slack_icon_emoji
